@@ -34,7 +34,7 @@
                 <div class="col-md-12">                    
                     <uib-tabset active="active" justified="false">
                         <uib-tab index="0" heading="Table">
-                            <table class="table table-hover">
+                            <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -44,7 +44,7 @@
                                     </tr>
                                 </thead>                                
                                 <tbody>
-                                    <tr ng-repeat="item in recordArr">
+                                    <tr ng-repeat="item in recordArr | orderBy:'date'">
                                         <td ng-bind="$index+1"></td>
                                         <td ng-bind="item.date"></td>
                                         <td ng-bind="item.pushup"></td>

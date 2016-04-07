@@ -39,7 +39,7 @@ define(['angular','data'],function(angular,data) {
                     url:'loadData',
                     method:'get'
                 }).success(function(data) {
-                    $scope.recordArr = data.obj;
+                    $scope.recordArr = angular.copy(data.obj);
                 }).error(function(data, status) {
                     console.log(status)
                 });
