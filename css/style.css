@@ -8,7 +8,7 @@ button {
     padding: 1%;
 }
 #bottom {
-    margin-top: 4%;
+    margin-top: 3%;
 }
 ul.nav {
     margin: 0 15px;
@@ -18,4 +18,7 @@ ul.nav {
 }
 .table {
     margin-top: 15px;
+}
+.tab-content {
+    margin: 0 15px;
 }
