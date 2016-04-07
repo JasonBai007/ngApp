@@ -1,0 +1,21 @@
+.container {
+    margin-top: 2%;
+}
+button {
+    width: 100%;
+}
+#top {
+    padding: 1%;
+}
+#bottom {
+    margin-top: 4%;
+}
+ul.nav {
+    margin: 0 15px;
+}
+.invalid {
+    border-color: red;
+}
+.table {
+    margin-top: 15px;
+}

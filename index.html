@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ngApp</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body ng-controller="myCtrl">
+        <div class="container">
+            <div class="row" id="top">
+                <div class="col-md-3 text-center">
+                    <div class="input-group">
+                        <span class="input-group-addon"><strong>日期</strong></span>
+                        <input type="text" class="form-control" placeholder="" uib-datepicker-popup="{{format}}" ng-model="now" disabled>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-addon"><strong>俯卧撑</strong></span>
+                        <input type="text" class="form-control" ng-model="pushUp" ng-class="{true:'invalid',false:'valid'}[isError]">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-addon"><strong>深蹲</strong></span>
+                        <input type="text" class="form-control" ng-model="squat" ng-class="{true:'invalid',false:'valid'}[isError]">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" ng-click="submit()" id="btn" class="btn btn-success"><strong>INPUT</strong></button>
+                </div>
+            </div>
+            <div class="row" id="bottom">
+                <div class="col-md-12">                    
+                    <uib-tabset active="active" justified="false">
+                        <uib-tab index="0" heading="Table">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Date</th>
+                                        <th>Pushups</th>
+                                        <th>Squats</th>
+                                    </tr>
+                                </thead>                                
+                                <tbody>
+                                    <tr ng-repeat="item in recordArr">
+                                        <td ng-bind="$index+1"></td>
+                                        <td ng-bind="item.date"></td>
+                                        <td ng-bind="item.pushup"></td>
+                                        <td ng-bind="item.squat"></td>
+                                    </tr>                                    
+                                </tbody>
+                          </table>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Chart">Chart</uib-tab>
+                    </uib-tabset>
+                </div>
+                
+            </div>           
+        </div>
+        <script src="js/lib/mock.js"></script>
+        <script src="js/lib/mock.angular.js"></script>
+        <script src="js/lib/require.js" data-main="js/main"></script>
+    </body>
+</html>
