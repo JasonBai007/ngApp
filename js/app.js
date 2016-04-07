@@ -29,8 +29,6 @@ define(['angular','jquery','service'],function(angular,jquery,service){
                 $scope.recordArr.push(obj);
                 $scope.pushUp = '';
                 $scope.squat = '';
-                console.log($scope.recordArr);
-                storage.setStorage(obj);                
             } else {
                 $scope.isError = true;
                 return false;
