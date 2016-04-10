@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <title>ngApp</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body ng-controller="myCtrl">
@@ -53,14 +53,16 @@
                                 </tbody>
                           </table>
                         </uib-tab>
-                        <uib-tab index="1" heading="Chart">Chart</uib-tab>
+                        <uib-tab index="1" heading="Chart">
+                            <highchart id="chart1" config="chartConfig"></highchart> 
+                        </uib-tab>
                     </uib-tabset>
                 </div>
                 
             </div>           
         </div>
-        <script src="js/lib/mock.js"></script>
+        <script src="js/lib/mockjs/dist/mock-min.js"></script>
         <script src="js/lib/mock.angular.js"></script>
-        <script src="js/lib/require.js" data-main="js/main"></script>
+        <script src="js/lib/requirejs/require.js" data-main="js/main"></script>
     </body>
 </html>

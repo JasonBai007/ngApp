@@ -1,9 +1,10 @@
 require.config({
     paths:{
-        'angular':'lib/angular.min',
-        'jquery':'lib/jquery.min',
-        'highcharts':'lib/highcharts',
-        'uib':'lib/ui-bootstrap-tpls-1.2.5',
+        'angular':'lib/angular/angular.min',
+        'jquery':'lib/jquery/dist/jquery.min',
+        'highcharts':'lib/highcharts/highcharts',
+        'highchartsNg':'lib/highcharts-ng',
+        'uib':'lib/angular-bootstrap/ui-bootstrap-tpls.min',
         'app':'app',
         'data':'data'
     },
@@ -14,6 +15,10 @@ require.config({
         "uib":{
             deps:['angular'],
             exports: "uib"
+        },
+        "highchartsNg":{
+            deps:['angular','highcharts'],
+            exports: "highchartsNg"
         }
     }
 });

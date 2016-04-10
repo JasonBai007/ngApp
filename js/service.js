@@ -4,22 +4,22 @@ define(['angular','data'],function(angular,data) {
 
     Mock.mockjax(Serv);  //捕获服务模块上的http请求  
     
-	Serv.factory('storage',function(){
-        return {
-            setStorage: function(obj) {
-                var storage = window.localStorage;
-                storage.setItem(obj.date,JSON.stringify(obj));                
-            },
-            getStorage: function() {
-                var storage = window.localStorage;
-                var arr = [];
-                for( var i=0,l=storage.length;i<l;i++) {
-                    arr.push(JSON.parse(storage.getItem(storage.key(i))));
-                }
-                return arr;
-            }
-        }        
-    });
+	// Serv.factory('storage',function(){
+ //        return {
+ //            setStorage: function(obj) {
+ //                var storage = window.localStorage;
+ //                storage.setItem(obj.date,JSON.stringify(obj));                
+ //            },
+ //            getStorage: function() {
+ //                var storage = window.localStorage;
+ //                var arr = [];
+ //                for( var i=0,l=storage.length;i<l;i++) {
+ //                    arr.push(JSON.parse(storage.getItem(storage.key(i))));
+ //                }
+ //                return arr;
+ //            }
+ //        }        
+ //    });
     Serv.factory('checkInput',function() {
     	return {
     		check: function(num1,num2) {
@@ -46,4 +46,15 @@ define(['angular','data'],function(angular,data) {
             }
         }
     }]);
+    Serv.factory('dateFormat',function() {
+        return {
+            newDateStr: function(date) {
+                var dateArr = date.split('/');
+                if( dateArr[1].length == 1) {
+                    dateArr[1] = '0' + dateArr[1];
+                }
+                return dateArr.join('-');                
+            }
+        }
+    });
 })
