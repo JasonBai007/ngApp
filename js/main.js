@@ -5,7 +5,7 @@ require.config({
         'highcharts':'lib/highcharts/highcharts',
         'highchartsNg':'lib/highcharts-ng',
         'uib':'lib/angular-bootstrap/ui-bootstrap-tpls.min',
-        'app':'app',
+        'controller':'controller',
         'data':'data'
     },
     shim:{
@@ -23,6 +23,6 @@ require.config({
     }
 });
 
-require(['angular','app','uib'],function(angular,app,uib){
+require(['angular','controller','uib'],function(angular,controller,uib){
     angular.bootstrap(document,['myApp']);
 });
