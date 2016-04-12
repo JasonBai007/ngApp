@@ -22,3 +22,6 @@ ul.nav {
 .tab-content {
     margin: 0 15px;
 }
+[class^="col-xs"] {
+    margin-top: 10px;
+}
