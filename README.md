@@ -1,6 +1,5 @@
 # Profile
-> 这是我自己做的小项目，仅供学习、练习、娱乐
-> 目前一直在完善
+> 此SPA仅供学习、练习、娱乐
 
 ### Version
 ```sh
@@ -11,15 +10,16 @@
 
 ```sh
 $ git clone https://github.com/JasonBai007/myApp.git
+$ npm install http-server -g
 $ http-server
 ```
 
 ### Todos
 
- - mock.js  mock.angular.js 模块引入总是报错
- - 近期要Gulp进行高效率的构建
- - 集成highcharts没有效果
- - ui-router集成不进来
+ - mock.angular.js 模块引入总是报错，蛋疼
+ - 对于小项目，bower gulp 的使用感觉并没有提升多少效率
+ - 集成highcharts成功，但是还有很多要调整的
+ - ui-router在做大项目的时候要引入，此单页应用不引入
 
 License
 ----

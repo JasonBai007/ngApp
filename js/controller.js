@@ -36,51 +36,43 @@ define(['angular','jquery','service','highcharts','highchartsNg'],function(angul
             }
         }
 
-        //This is not a highcharts object. It just looks a little like one!
-        var chartConfig = {
-          options: {
-            //This is the Main Highcharts chart config. Any Highchart options are valid here.
-            //will be overriden by values specified below.
-            chart: {
-               type: 'bar'
+        //好吧，居然成了，当时没有绑定到$scope上，真是坑死了
+        $scope.chartConfig = {
+            options: {
+                chart: {
+                    type: 'column'
+                },
+                tooltip: {
+                    style: {
+                        padding: 10,
+                        fontWeight: 'bold'
+                    }
+                }
             },
-            tooltip: {
-               style: {
-                  padding: 10,
-                  fontWeight: 'bold'
-               }
+            title: {
+                text: 'the Trending of PushUps Everyday'
+            },
+            series: [{
+                name: 'PushUps',
+                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            },{
+                name: 'Squats',
+                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+            }],
+            yAxis: {
+                currentMin: 0,
+                currentMax: 100,
+                title: {
+                    text: 'quantity'
+                }
+            },
+            size: {
+                height: 400
+            },
+            //function (optional)
+            func: function(chart) {
+                //setup some logic for the chart
             }
-          },
-          //The below properties are watched separately for changes.
-          //Series object (optional) - a list of series using normal highcharts series options.
-          series: [{
-            data: [10, 15, 12, 8, 7]
-          }],
-          //Title configuration (optional)
-          title: {
-            text: 'Hello'
-          },
-          //Boolean to control showng loading status on chart (optional)
-          //Could be a string if you want to show specific loading text.
-          loading: false,
-          //Configuration for the xAxis (optional). Currently only one x axis can be dynamically controlled.
-          //properties currentMin and currentMax provied 2-way binding to the chart's maximimum and minimum
-          xAxis: {
-          currentMin: 0,
-          currentMax: 20,
-          title: {text: 'values'}
-          },
-          //Whether to use HighStocks instead of HighCharts (optional). Defaults to false.
-          useHighStocks: false,
-          //size (optional) if left out the chart will default to size of the div or something sensible.
-          size: {
-          width: 400,
-          height: 300
-          },
-          //function (optional)
-          func: function (chart) {
-          //setup some logic for the chart
-          }
         };
         
     }]);

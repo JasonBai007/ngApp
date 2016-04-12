@@ -17,11 +17,14 @@ ul.nav {
     border-color: red;
 }
 .table {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 .tab-content {
     margin: 0 15px;
 }
 [class^="col-xs"] {
     margin-top: 10px;
+}
+#bar1 {
+	margin-top: 20px;
 }
