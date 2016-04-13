@@ -25,11 +25,14 @@ define(['angular','jquery','service','highcharts','highchartsNg'],function(angul
                 var newDate = dateFormat.newDateStr($scope.now.toLocaleDateString());
                 var obj = {
                     date: newDate,
-                    pushup: $scope.pushUp,
-                    squat: $scope.squat
+                    pushup: +$scope.pushUp,  //变成数值
+                    squat: +$scope.squat    //变成数值
                 }
+                // 渲染表格
                 $scope.recordArr.push(obj);
-                // handleData.loadData($scope); 
+                // 渲染图表
+                $scope.chartConfig = renderBar($scope.recordArr);
+                // 重置输入框
                 $scope.pushUp = '';
                 $scope.squat = '';
             } else {

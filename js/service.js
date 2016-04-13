@@ -40,7 +40,9 @@ define(['angular','data'],function(angular,data) {
                     url:'loadData',
                     method:'get'
                 }).success(function(data) {
+                    // 渲染表格
                     $scope.recordArr = angular.copy(data.obj);
+                    // 渲染图表
                     $scope.chartConfig = renderBar($scope.recordArr);
                 }).error(function(data, status) {
                     console.log(status)
@@ -108,15 +110,22 @@ define(['angular','data'],function(angular,data) {
                         enabled: false
                     },
                     legend: {
-                        enabled:false
-                    }
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 1 
+                    },
                 },
                 title: {
                     text: 'the Trending of Exercise Everyday'
                 },
                 series: seriesItem,
                 xAxis: {
-                    categories:xItem                    
+                    categories:xItem,
+                    labels: {
+                        align:'left',
+                        rotation: 45
+                    }                   
                 },
                 yAxis: {
                     currentMin: 0,
@@ -128,11 +137,7 @@ define(['angular','data'],function(angular,data) {
                 size: {
                     width:900,
                     height: 400
-                },
-                //function (optional)
-                func: function(chart) {
-                    //setup some logic for the chart
-                }
+                }                
             }
             return cfg;
         }
