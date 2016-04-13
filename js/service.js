@@ -4,6 +4,7 @@ define(['angular','data'],function(angular,data) {
 
     Mock.mockjax(Serv);  //捕获服务模块上的http请求  
     
+    // 使用localstorage存储前端数据，以后可能会用到
 	// Serv.factory('storage',function(){
  //        return {
  //            setStorage: function(obj) {
@@ -32,7 +33,7 @@ define(['angular','data'],function(angular,data) {
     		}
     	}
     });
-    Serv.factory('handleData',["$http",function($http) {
+    Serv.factory('handleData',["$http",'renderBar',function($http,renderBar) {
         return {
             loadData: function($scope) {
                 $http({
@@ -40,6 +41,7 @@ define(['angular','data'],function(angular,data) {
                     method:'get'
                 }).success(function(data) {
                     $scope.recordArr = angular.copy(data.obj);
+                    $scope.chartConfig = renderBar($scope.recordArr);
                 }).error(function(data, status) {
                     console.log(status)
                 });
@@ -55,6 +57,84 @@ define(['angular','data'],function(angular,data) {
                 }
                 return dateArr.join('-');                
             }
+        }
+    });
+    Serv.factory('renderBar',function() {     
+        return function(arr){
+
+            // 加工X轴数据
+            function getCategories (arr) {
+                var xArr = [];
+                for(var i=0,l=arr.length;i<l;i++) {
+                    xArr.push(arr[i].date);
+                }
+                return xArr;
+            }
+
+            // 加工图表数据
+            function getSeries (arr) {
+                var sArr = [
+                    {name:'PushUps',data:[],dataLabels:{enabled: true,inside:true,color:'#fff'}},
+                    {name:'Squats',data:[],dataLabels:{enabled: true,inside:true,color:'#fff'}}
+                ];
+                var dataP = [], dataS = [];
+                for(var i=0,l=arr.length;i<l;i++) {
+                    dataP.push(arr[i].pushup);
+                    dataS.push(arr[i].squat);
+                }
+                sArr[0].data = dataP;
+                sArr[1].data = dataS;
+                return sArr;
+            }
+
+            // 获得渲染所需数据
+            var xItem = getCategories(arr);
+            var seriesItem = getSeries(arr);
+
+            // 创建配置对象
+            var cfg = {
+                options: {
+                    chart: {
+                        type: 'column'
+                    },
+                    tooltip: {
+                        style: {
+                            padding: 10,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    colors: ['#83B2EA', '#ED9D68'],
+                    credits: {
+                        enabled: false
+                    },
+                    legend: {
+                        enabled:false
+                    }
+                },
+                title: {
+                    text: 'the Trending of Exercise Everyday'
+                },
+                series: seriesItem,
+                xAxis: {
+                    categories:xItem                    
+                },
+                yAxis: {
+                    currentMin: 0,
+                    currentMax: 100,
+                    title: {
+                        text: 'quantity'
+                    }
+                },
+                size: {
+                    width:900,
+                    height: 400
+                },
+                //function (optional)
+                func: function(chart) {
+                    //setup some logic for the chart
+                }
+            }
+            return cfg;
         }
     });
 })

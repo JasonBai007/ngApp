@@ -25,6 +25,7 @@ ul.nav {
 [class^="col-xs"] {
     margin-top: 10px;
 }
-#bar1 {
-	margin-top: 20px;
+#bar {
+    width: 900px;
+    margin: 20px auto 0;
 }
