@@ -1,6 +1,6 @@
 # Profile
 > 此SPA仅供学习、练习、娱乐  
-> 技术栈：AngularJs + RequireJs + Angular-Ui + Highcharts + Mock.js + Mock.angular.js
+> 技术栈：AngularJs + RequireJs + Angular-Ui + Highcharts + Mock.js + Mock.angular.js + Bootstrap.css
 
 ### Version
 ```sh
