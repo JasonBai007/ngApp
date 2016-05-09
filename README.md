@@ -15,7 +15,7 @@ $ npm install http-server -g
 $ http-server
 ```
 
-### License
+License
 ----
 
 MIT
