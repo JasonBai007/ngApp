@@ -15,11 +15,7 @@ $ npm install http-server -g
 $ http-server
 ```
 
-### Todos
-
- - mock.angular.js 模块引入报错
-
-License
+### License
 ----
 
 MIT
