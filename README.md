@@ -18,7 +18,6 @@ $ http-server
 ### Todos
 
  - mock.angular.js 模块引入报错
- - 未搭建后台，今后应该会搭建后台
 
 License
 ----
