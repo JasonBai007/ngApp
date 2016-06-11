@@ -1,0 +1,31 @@
+.container {
+    margin-top: 2%;
+}
+button {
+    width: 100%;
+}
+#top {
+    padding: 1%;
+}
+#bottom {
+    margin-top: 3%;
+}
+ul.nav {
+    margin: 0 15px;
+}
+.invalid {
+    border-color: red;
+}
+.table {
+    margin-top: 20px;
+}
+.tab-content {
+    margin: 0 15px;
+}
+[class^="col-xs"] {
+    margin-top: 10px;
+}
+#bar {
+    width: 900px;
+    margin: 20px auto 0;
+}
